@@ -1,0 +1,22 @@
+const mockEmployees = [
+  { id: 1, firstName: "John", lastName: "Doe", email: "john.doe@example.com", department: "HR", role: "Manager" },
+  { id: 2, firstName: "Jane", lastName: "Smith", email: "jane.smith@example.com", department: "IT", role: "Developer" },
+  { id: 3, firstName: "Alice", lastName: "Wong", email: "alice.wong@example.com", department: "Finance", role: "Analyst" },
+  { id: 4, firstName: "Bob", lastName: "Brown", email: "bob.brown@example.com", department: "IT", role: "Tester" },
+  { id: 5, firstName: "Charlie", lastName: "Lee", email: "charlie.lee@example.com", department: "Marketing", role: "Executive" },
+  { id: 6, firstName: "Daisy", lastName: "Clark", email: "daisy.clark@example.com", department: "HR", role: "Recruiter" },
+  { id: 7, firstName: "Evan", lastName: "Hall", email: "evan.hall@example.com", department: "Finance", role: "Accountant" },
+  { id: 8, firstName: "Fiona", lastName: "Adams", email: "fiona.adams@example.com", department: "IT", role: "Developer" },
+  { id: 9, firstName: "George", lastName: "Nguyen", email: "george.nguyen@example.com", department: "Sales", role: "Manager" },
+  { id: 10, firstName: "Hannah", lastName: "Patel", email: "hannah.patel@example.com", department: "Operations", role: "Coordinator" },
+  { id: 11, firstName: "Irene", lastName: "Kumar", email: "irene.kumar@example.com", department: "IT", role: "Support" },
+  { id: 12, firstName: "Jack", lastName: "Chen", email: "jack.chen@example.com", department: "Finance", role: "Intern" },
+  { id: 13, firstName: "Kelly", lastName: "Scott", email: "kelly.scott@example.com", department: "HR", role: "Trainer" },
+  { id: 14, firstName: "Leo", lastName: "Davis", email: "leo.davis@example.com", department: "Marketing", role: "Strategist" },
+  { id: 15, firstName: "Maria", lastName: "Lopez", email: "maria.lopez@example.com", department: "Sales", role: "Representative" },
+  { id: 16, firstName: "Nathan", lastName: "Singh", email: "nathan.singh@example.com", department: "IT", role: "DevOps" },
+  { id: 17, firstName: "Olivia", lastName: "Green", email: "olivia.green@example.com", department: "Finance", role: "Analyst" },
+  { id: 18, firstName: "Peter", lastName: "Reed", email: "peter.reed@example.com", department: "Marketing", role: "Executive" },
+  { id: 19, firstName: "Queenie", lastName: "Wright", email: "queenie.wright@example.com", department: "Operations", role: "Admin" },
+  { id: 20, firstName: "Ryan", lastName: "Taylor", email: "ryan.taylor@example.com", department: "Sales", role: "Executive" }
+];

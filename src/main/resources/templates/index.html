@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Directory</title>
+  <link rel="stylesheet" href="../static/css/style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <h1>Ajackus</h1>
+  </header>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <div class="top-bar">
+      <h2>Employee Directory</h2>
+      <div class="top-bar-right">
+        <label>Sort:
+          <select id="sortSelect">
+            <option value="">--Select--</option>
+            <option value="firstName">First Name</option>
+            <option value="department">Department</option>
+          </select>
+        </label>
+
+        <label>Show:
+          <select id="itemsPerPage">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </label>
+
+        <input type="text" id="searchInput" placeholder="Search by name or email" />
+        <button id="filterBtn">Filter</button>
+        <button id="addBtn" class="add-btn">Add Employee</button>
+      </div>
+    </div>
+
+    <!-- Filter Panel -->
+    <div id="filterPanel" class="filter-panel hidden">
+      <input type="text" id="filterFirstName" placeholder="First Name" />
+      <input type="text" id="filterDepartment" placeholder="Department" />
+      <input type="text" id="filterRole" placeholder="Role" />
+      <button id="applyFilter">Apply</button>
+      <button id="resetFilter">Reset</button>
+    </div>
+
+    <!-- Employee List -->
+    <div id="employeeList" class="employee-grid">
+      <!-- Cards will be injected here by JS -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 Employee Directory App. All rights reserved.
+  </footer>
+
+  <!-- Add Employee Modal -->
+  <div id="formOverlay" class="form-overlay hidden">
+    <form id="employeeForm" class="form-box">
+      <button type="button" id="closeForm" class="close-btn">×</button>
+      <h2>Add Employee</h2>
+      <input type="text" id="firstName" placeholder="First Name" required />
+      <input type="text" id="lastName" placeholder="Last Name" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="text" id="department" placeholder="Department" required />
+      <input type="text" id="role" placeholder="Role" required />
+      <div class="form-actions">
+        <button type="button" id="cancelBtn">Cancel</button>
+        <button type="submit">Add</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../static/js/data.js"></script>
+  <script src="../static/js/app.js"></script>
+</body>
+</html>
