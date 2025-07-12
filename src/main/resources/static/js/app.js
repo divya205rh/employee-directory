@@ -1,10 +1,10 @@
-// Clone mock data without altering the original
+
 let employees = JSON.parse(JSON.stringify(mockEmployees));
 let filteredEmployees = [...employees];
 let currentPage = 1;
 let itemsPerPage = 10;
 
-// DOM references
+
 const container = document.getElementById('employeeList');
 const itemsPerPageSelect = document.getElementById('itemsPerPage');
 const searchInput = document.getElementById('searchInput');
@@ -14,7 +14,7 @@ const filterPanel = document.getElementById('filterPanel');
 const applyFilterBtn = document.getElementById('applyFilter');
 const resetFilterBtn = document.getElementById('resetFilter');
 
-// Add Form DOM
+
 const addBtn = document.getElementById('addBtn');
 const formOverlay = document.getElementById('formOverlay');
 const employeeForm = document.getElementById('employeeForm');
@@ -28,7 +28,7 @@ const roleInput = document.getElementById('role');
 let editingEmployeeId = null;
 
 
-// Render Employees
+
 function renderEmployees() {
   if (!container) {
     console.error("❌ 'employeeList' container not found in HTML.");
@@ -57,12 +57,12 @@ function renderEmployees() {
   });
 
  attachDeleteListeners();
- attachEditListeners(); // 👈 Add this line just after delete listener
+ attachEditListeners(); 
 
 
 }
 
-// Delete Handler
+
 function attachDeleteListeners() {
   const deleteBtns = document.querySelectorAll('.delete-btn');
   deleteBtns.forEach(btn => {
@@ -83,10 +83,9 @@ function attachEditListeners() {
       const emp = employees.find(e => e.id === id);
       if (!emp) return;
 
-      editingEmployeeId = id;
+      editingEmployeeId = id; 
       formOverlay.classList.remove('hidden');
 
-      // Pre-fill form
       firstNameInput.value = emp.firstName;
       lastNameInput.value = emp.lastName;
       emailInput.value = emp.email;
@@ -97,14 +96,13 @@ function attachEditListeners() {
 }
 
 
-// Pagination
 itemsPerPageSelect.addEventListener('change', e => {
   itemsPerPage = parseInt(e.target.value);
   currentPage = 1;
   renderEmployees();
 });
 
-// Search
+
 searchInput.addEventListener('input', e => {
   const value = e.target.value.toLowerCase();
   filteredEmployees = employees.filter(emp =>
@@ -115,7 +113,7 @@ searchInput.addEventListener('input', e => {
   renderEmployees();
 });
 
-// Sort
+
 sortSelect.addEventListener('change', e => {
   const sortBy = e.target.value;
   if (sortBy === 'firstName') {
@@ -126,7 +124,7 @@ sortSelect.addEventListener('change', e => {
   renderEmployees();
 });
 
-// Filter
+
 filterBtn.addEventListener('click', () => {
   filterPanel.classList.toggle('hidden');
 });
@@ -163,7 +161,7 @@ resetFilterBtn.addEventListener('click', () => {
   renderEmployees();
 });
 
-// Add Form Logic
+
 addBtn.addEventListener('click', () => {
   employeeForm.reset();
   formOverlay.classList.remove('hidden');
@@ -180,8 +178,7 @@ closeForm.addEventListener('click', () => {
 employeeForm.addEventListener('submit', e => {
   e.preventDefault();
 
-  const newEmp = {
-    id: Date.now(),
+  const empData = {
     firstName: firstNameInput.value.trim(),
     lastName: lastNameInput.value.trim(),
     email: emailInput.value.trim(),
@@ -190,24 +187,35 @@ employeeForm.addEventListener('submit', e => {
   };
 
   if (
-    !newEmp.firstName ||
-    !newEmp.lastName ||
-    !newEmp.email ||
-    !newEmp.department ||
-    !newEmp.role ||
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newEmp.email)
+    !empData.firstName ||
+    !empData.lastName ||
+    !empData.email ||
+    !empData.department ||
+    !empData.role ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(empData.email)
   ) {
     alert('Please fill all fields with valid info.');
     return;
   }
 
-  employees.push(newEmp);
+  if (editingEmployeeId) {
+    
+    const index = employees.findIndex(e => e.id === editingEmployeeId);
+    if (index !== -1) {
+      employees[index] = { id: editingEmployeeId, ...empData };
+    }
+  } else {
+  
+    const newEmp = { id: Date.now(), ...empData };
+    employees.push(newEmp);
+  }
+
+  editingEmployeeId = null;
   filteredEmployees = [...employees];
   formOverlay.classList.add('hidden');
   renderEmployees();
 });
 
-// Initial Load
 document.addEventListener('DOMContentLoaded', () => {
   renderEmployees();
 });
