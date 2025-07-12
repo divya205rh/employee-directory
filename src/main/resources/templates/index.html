@@ -7,12 +7,11 @@
   <link rel="stylesheet" href="../static/css/style.css" />
 </head>
 <body>
-  <!-- Header -->
+  
   <header class="header">
     <h1>Ajackus</h1>
   </header>
 
-  <!-- Main Container -->
   <div class="main-container">
     <div class="top-bar">
       <h2>Employee Directory</h2>
@@ -40,7 +39,6 @@
       </div>
     </div>
 
-    <!-- Filter Panel -->
     <div id="filterPanel" class="filter-panel hidden">
       <input type="text" id="filterFirstName" placeholder="First Name" />
       <input type="text" id="filterDepartment" placeholder="Department" />
@@ -49,18 +47,16 @@
       <button id="resetFilter">Reset</button>
     </div>
 
-    <!-- Employee List -->
     <div id="employeeList" class="employee-grid">
-      <!-- Cards will be injected here by JS -->
+      
     </div>
   </div>
 
-  <!-- Footer -->
   <footer class="footer">
     © 2025 Employee Directory App. All rights reserved.
   </footer>
 
-  <!-- Add Employee Modal -->
+
   <div id="formOverlay" class="form-overlay hidden">
     <form id="employeeForm" class="form-box">
       <button type="button" id="closeForm" class="close-btn">×</button>
@@ -77,7 +73,7 @@
     </form>
   </div>
 
-  <!-- Scripts -->
+ 
   <script src="../static/js/data.js"></script>
   <script src="../static/js/app.js"></script>
 </body>
